@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ openMenu: null }">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/output.css" />
+    <title>Software BRASIL</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./Images/cropped-Favicon-192x192.png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+
+  <body class="font-[Inter]">
+    <!-- Utility Bar -->
+    <div
+      class="bg-[#333333] text-[#B2B2B2] hidden lg:block border-b border-[#444] text-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto flex justify-end items-center px-8 py-2 space-x-8"
+      >
+        <a href="tel:+551136658550" class="flex items-center hover:text-white">
+          <i class="ri-phone-line mr-2 text-[#f26c0d]"></i> +55 (11) 3665-8550
+        </a>
+        <a href="#" class="hover:text-white">Loja Online</a>
+        <a href="#" class="hover:text-white">Quem somos</a>
+        <a href="#" class="hover:text-white">Contato</a>
+        <a href="#" class="hover:text-white">Eventos</a>
+        <a href="#" class="hover:text-white">Fale Conosco</a>
+        <a href="#" class="hover:text-white">Blog</a>
+        <a href="#" class="hover:text-white">Torne-se um parceiro</a>
+      </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <header
+      x-data="{ openMenu: null }"
+      class="w-full bg-[#333333] text-[#B2B2B2] sticky top-0 z-50 shadow-md border-b border-[#444]"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="/"
+            ><img
+              src="./Images/Logo-fundo-escuro.png"
+              alt="Logo"
+              class="h-auto max-w-full"
+          /></a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <nav
+          class="hidden md:flex items-center gap-8 font-bold text-[16px] text-[#fefefe]"
+        >
+          <button
+            @mouseenter="openMenu='products'"
+            class="flex items-center gap-1 hover:text-[#f26c0d] transition"
+          >
+            Produtos
+            <i class="ri-arrow-down-s-line text-white"></i>
+          </button>
+
+          <button
+            @mouseenter="openMenu='services'"
+            class="flex items-center gap-1 hover:text-[#f26c0d] transition"
+          >
+            Serviços
+            <i class="ri-arrow-down-s-line text-white"></i>
+          </button>
+
+          <button
+            @mouseenter="openMenu='manufacturers'"
+            class="flex items-center gap-1 hover:text-[#f26c0d] transition"
+          >
+            Fabricantes
+            <i class="ri-arrow-down-s-line text-white"></i>
+          </button>
+        </nav>
+
+        <!-- Right Section -->
+        <div class="flex items-center space-x-5">
+          <div
+            class="hidden md:flex justify-between bg-[#fefefe] rounded-full px-4 py-1 w-96 border border-[#e6e6e6]"
+          >
+            <input
+              type="text"
+              placeholder="Pesquisar por fabricante, solução ou produto"
+              class="bg-transparent outline-none font-bold m-1 text-md-start w-full"
+            />
+            <i class="ri-search-line p-1 font-bold text-xl text-[#f26c0d]"></i>
+          </div>
+          <a
+            href="#"
+            class="hidden md:inline-flex bg-[#f26c0d] text-white px-10 py-3 rounded-md text-sm font-semibold transition hover:bg-white hover:text-[#f48e46]"
+          >
+            Solicitar um orçamento
+          </a>
+
+          <button
+            class="md:hidden text-4xl text-[#f26c0d]"
+            @click="openMenu = openMenu === 'mobile' ? null : 'mobile'"
+          >
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Products Dropdown -->
+      <div
+        x-show="openMenu==='products'"
+        x-transition
+        @mouseenter="openMenu='products'"
+        @mouseleave="openMenu=null"
+        class="absolute left-0 top-full w-full bg-[#fefefe] border-t border-[#ddd] shadow-lg z-50 hidden md:block"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center border-b border-[#eee]"
+        >
+          <span class="text-[#f26c0d] text-lg font-semibold">Categorias</span>
+          <button
+            @click="openMenu=null"
+            class="w-6 h-6 flex items-center justify-center rounded-full border border-[#666] text-[#666] hover:text-[#f26c0d] hover:border-[#f26c0d] transition-colors"
+          >
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+        <ul
+          class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3"
+        >
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Análise de Dados</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Arquitetura e Engenharia</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Backup e Recuperação</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Banco de Dados e Virtualização</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Cibersegurança</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Componentes de Programação</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >DevOps</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Gestão de Projetos e Colaboração</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Gestão de Documentos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Inteligência Artificial</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Mac</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Multimídia</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Planejamento</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Produtividade</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Rede e Monitoramento</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >Utilitários</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block text-[#666] font-semibold hover:text-[#333] transition"
+              >UX</a
+            >
+          </li>
+        </ul>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-end">
+          <a
+            href="/en/loja/"
+            class="flex items-center gap-2 text-[#f26c0d] font-semibold"
+            >Ver todos <i class="ri-arrow-right-line"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Desktop Services Dropdown -->
+      <div
+        x-show="openMenu==='services'"
+        x-transition
+        @mouseenter="openMenu='services'"
+        @mouseleave="openMenu=null"
+        class="absolute left-0 top-full w-full bg-[#fefefe] shadow-lg border-t hidden md:block"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center border-b border-[#eee]"
+        >
+          <span class="text-[#f26c0d] text-lg font-semibold"
+            >Todos os Serviços</span
+          >
+          <button
+            @click="openMenu=null"
+            class="w-6 h-6 flex items-center justify-center rounded-full border border-[#666] text-[#666] hover:text-[#f26c0d] hover:border-[#f26c0d] transition-colors"
+          >
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-4 gap-6">
+          <!-- Column 1 -->
+          <div class="flex flex-col gap-6">
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img src="./Images/services-svg/Group-3.svg" class="w-8 h-8" />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Licenciamento de Software e Acordo-Guarda-Chuva</span
+              >
+            </a>
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/monitor-server-databases-checkmark.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Análise de Dados</span
+              >
+            </a>
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/open-book-graduate-hat.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Autoria e LMS</span
+              >
+            </a>
+          </div>
+          <!-- Column 2 -->
+          <div class="flex flex-col gap-6">
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/colaboracao-e-design-1.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Colaboração e Design</span
+              >
+            </a>
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/low-code-1.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Desenvolvimento Low Code, soluções e integrações via APIs</span
+              >
+            </a>
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/folder-programming-code.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >DevSecOps</span
+              >
+            </a>
+          </div>
+          <!-- Column 3 -->
+          <div class="flex flex-col gap-6">
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/engenharia-1.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Engenharia e GIS</span
+              >
+            </a>
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/file-3-1-1.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Gestão de Projetos e ITSM</span
+              >
+            </a>
+            <a href="#" class="flex items-center gap-3 mt-6 p-1">
+              <img
+                src="./Images/services-svg/Fingerprint.svg"
+                class="w-8 h-8"
+              />
+              <span class="text-[#666] font-normal text-[18px] leading-[25.6px]"
+                >Infraestrutura e Cibersegurança</span
+              >
+            </a>
+          </div>
+          <!-- Coluna 4 - Banner -->
+          <div
+            class="bg-services-menu flex flex-col justify-end p-6 rounded w-[265px] h-[300px] bg-[url('./Images/services-svg/services-banner.png')] bg-center bg-no-repeat bg-cover"
+          >
+            <h3 class="text-white text-[14px] font-semibold mt-28 pt-4">
+              Treinamento especializado
+            </h3>
+            <p class="text-white text-[14px] mt-2 leading-[100%]">
+              Oriente e capacite sua equipe com especializações em diferentes
+              softwares
+            </p>
+            <a
+              href="https://software.com.br/en/servicos-gerais/"
+              class="flex items-center gap-2 text-white font-medium hover:underline text-[14px] mt-4 p-4"
+            >
+              Saiba mais
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Manufacturers Dropdown Desktop -->
+      <div
+        x-show="openMenu==='manufacturers'"
+        x-transition
+        @mouseenter="openMenu='manufacturers'"
+        @mouseleave="openMenu=null"
+        class="absolute left-0 top-full w-full bg-[#fefefe] border-t border-[#ddd] shadow-lg hidden md:block"
+      >
+        <!-- Cabeçalho com Fechar -->
+        <div
+          class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center border-b border-[#eee]"
+        >
+          <span class="text-[#f26c0d] text-lg font-semibold"
+            >Todos os Fabricantes</span
+          >
+          <button
+            @click="openMenu=null"
+            class="w-6 h-6 flex items-center justify-center rounded-full border border-[#666] text-[#666] hover:text-[#f26c0d] hover:border-[#f26c0d] transition-colors"
+          >
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Grid de Itens Desktop -->
+        <ul
+          class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4"
+        >
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/Adobe.png" class="w-10 h-10" />
+              <span>Adobe</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/anydesk.png" class="w-10 h-10" />
+              <span>AnyDesk</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img
+                src="./Images/Manufactures/articulate.png"
+                class="w-10 h-10"
+              />
+              <span>Articulate</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img
+                src="./Images/Manufactures/Atlassian.webp"
+                class="w-10 h-10"
+              />
+              <span>Atlassian</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/Bentley.jpg" class="w-10 h-10" />
+              <span>Bentley</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/canva.svg" class="w-10 h-10" />
+              <span>Canva</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/corel.webp" class="w-10 h-10" />
+              <span>Corel</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/jfrog.webp" class="w-10 h-10" />
+              <span>JFrog</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/Minitab.png" class="w-10 h-10" />
+              <span>Minitab</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img src="./Images/Manufactures/sonar.webp" class="w-10 h-10" />
+              <span>SonarSource</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img
+                src="./Images/Manufactures/TeamViewer.png"
+                class="w-10 h-10"
+              />
+              <span>TeamViewer</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-2 text-[#666] font-semibold hover:text-[#333] mt-4 transition-colors"
+            >
+              <img
+                src="./Images/Manufactures/Think Cell.jpg"
+                class="w-10 h-10"
+              />
+              <span>Think Cell</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Rodapé -->
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-end">
+          <a
+            href="/all-manufacturers/"
+            class="flex items-center gap-2 text-[#f26c0d] font-medium hover:underline"
+          >
+            Ver todos <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div
+        x-show="openMenu==='mobile'"
+        x-transition
+        class="fixed inset-0 bg-[#fefefe] z-50 overflow-auto p-6 md:hidden"
+      >
+        <button
+          @click="openMenu=null"
+          class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full border border-[#666] text-[#666] hover:bg-[#f26c0d] hover:text-white transition-colors"
+        >
+          <i class="ri-close-line text-2xl"></i>
+        </button>
+
+        <!-- Produtos -->
+        <section class="mb-6">
+          <h3 class="text-[#f26c0d] text-xl font-semibold mb-2">Categorias</h3>
+          <ul class="grid grid-cols-1 gap-2 text-[#666]">
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Análise de Dados
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Arquitetura e Engenharia
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Backup e Recuperação
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Banco de Dados e Virtualização
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Cibersegurança
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Componentes de Programação
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">DevOps</li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Gestão de Projetos e Colaboração
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Gestão de Documentos
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Inteligência Artificial
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">Mac</li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Multimídia
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Planejamento
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Produtividade
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Rede e Monitoramento
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">
+              Utilitários
+            </li>
+            <li class="text-lg font-semibold hover:text-[#333] mt-3">UX</li>
+          </ul>
+        </section>
+
+        <!-- Serviços -->
+        <section class="mb-6">
+          <h3 class="text-[#f26c0d] text-xl font-semibold mb-2">
+            Todos os Serviços
+          </h3>
+          <ul class="grid grid-cols-1 gap-2 text-[#666]">
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/Group-3.svg"
+                class="w-6 h-6"
+              />Licenciamento de Software e Acordo Quadro
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/monitor-server-databases-checkmark.svg"
+                class="w-6 h-6"
+              />Análise de Dados
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/open-book-graduate-hat.svg"
+                class="w-6 h-6"
+              />Autoria e LMS
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/colaboracao-e-design-1.svg"
+                class="w-6 h-6"
+              />Colaboração & Design
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/low-code-1.svg"
+                class="w-6 h-6"
+              />Desenvolvimento Low Code, soluções e integrações via APIs
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/folder-programming-code.svg"
+                class="w-6 h-6"
+              />DevSecOps
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/engenharia-1.svg"
+                class="w-6 h-6"
+              />Engenharia & GIS
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/file-3-1-1.svg"
+                class="w-6 h-6"
+              />Gestão de Projetos e ITSM
+            </li>
+            <li class="flex items-center gap-3 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/services-svg/Fingerprint.svg"
+                class="w-6 h-6"
+              />Infraestrutura e Cibersegurança
+            </li>
+          </ul>
+        </section>
+
+        <!-- Fabricantes -->
+        <section class="mb-6">
+          <h3 class="text-[#f26c0d] text-xl font-semibold mb-2">
+            Todos os Fabricantes
+          </h3>
+          <ul class="grid grid-cols-1 gap-2 text-[#666]">
+            <li class="flex items-center gap-2 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/Manufactures/Adobe.png"
+                class="w-10 h-10"
+              />Adobe
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/Manufactures/anydesk.png"
+                class="w-10 h-10"
+              />AnyDesk
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/Manufactures/articulate.png"
+                class="w-10 h-10"
+              />Articulate
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/Manufactures/Atlassian.webp"
+                class="w-10 h-10"
+              />Atlassian
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/Manufactures/Bentley.jpg"
+                class="w-10 h-10"
+              />Bentley
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333] mt-3">
+              <img
+                src="./Images/Manufactures/canva.svg"
+                class="w-10 h-10"
+              />Canva
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333]">
+              <img
+                src="./Images/Manufactures/corel.webp"
+                class="w-10 h-10"
+              />Corel
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333]">
+              <img
+                src="./Images/Manufactures/jfrog.webp"
+                class="w-10 h-10"
+              />JFrog
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333]">
+              <img
+                src="./Images/Manufactures/Minitab.png"
+                class="w-10 h-10"
+              />Minitab
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333]">
+              <img
+                src="./Images/Manufactures/sonar.webp"
+                class="w-10 h-10"
+              />SonarSource
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333]">
+              <img
+                src="./Images/Manufactures/TeamViewer.png"
+                class="w-10 h-10"
+              />TeamViewer
+            </li>
+            <li class="flex items-center gap-2 text-lg hover:text-[#333]">
+              <img
+                src="./Images/Manufactures/Think Cell.jpg"
+                class="w-10 h-10"
+              />Think Cell
+            </li>
+          </ul>
+        </section>
+
+        <div class="mt-8 flex justify-center">
+          <a
+            href="/en/loja/"
+            class="flex items-center gap-2 text-[#f26c0d] font-medium hover:underline"
+            >Ver todos <i class="ri-arrow-right-line"></i
+          ></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative w-full">
+      <div
+        x-data="{
+      slides: [
+        { imgSrc: './Images/dummyimage.jpeg', imgAlt: 'Slide 1', title: 'Licenciamento de software ágil, prático e a preços competitivos.', subtitle: '', ctaText: 'Conte com a gente ', ctaLink: '#' },
+        { imgSrc: './Images/dummyimage.jpeg', imgAlt: 'Slide 2', title: 'Desde a escolha do software ao suporte pós-implantação', subtitle: 'Soluções completas para sua empresa.', ctaText: 'Saiba mais ', ctaLink: '#' },
+        { imgSrc: './Images/dummyimage.jpeg', imgAlt: 'Slide 3', title: 'O maior portfólio do mercado', subtitle: 'Os melhores fabricantes em um só lugar', ctaText: 'Fale conosco ', ctaLink: '#' }
+      ],
+      currentSlideIndex: 0,
+      interval: null,
+      startAutoSlide() { this.interval = setInterval(() => this.next(), 5000) },
+      stopAutoSlide() { clearInterval(this.interval) },
+      previous() { this.currentSlideIndex = this.currentSlideIndex > 0 ? this.currentSlideIndex - 1 : this.slides.length - 1 },
+      next() { this.currentSlideIndex = this.currentSlideIndex < this.slides.length - 1 ? this.currentSlideIndex + 1 : 0 }
+    }"
+        x-init="startAutoSlide()"
+        @mouseenter="stopAutoSlide()"
+        @mouseleave="startAutoSlide()"
+        class="relative w-full overflow-hidden"
+      >
+        <div class="relative w-full aspect-video sm:aspect-16/6 md:aspect-3/1">
+          <template x-for="(slide, index) in slides" :key="index">
+            <div
+              x-cloak
+              x-show="currentSlideIndex === index"
+              class="absolute inset-0"
+              x-transition.opacity.duration.700ms
+            >
+              <img
+                class="w-full h-full object-cover"
+                :src="slide.imgSrc"
+                :alt="slide.imgAlt"
+              />
+
+              <div
+                class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-4 sm:px-8 md:px-16 lg:px-20"
+              >
+                <div class="max-w-4xl mx-auto">
+                  <h1
+                    class="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-snug sm:leading-tight"
+                    x-text="slide.title"
+                  ></h1>
+
+                  <p
+                    class="text-xs sm:text-base md:text-xl lg:text-2xl mb-4 sm:mb-6 opacity-90"
+                    x-text="slide.subtitle"
+                  ></p>
+
+                  <a
+                    :href="slide.ctaLink"
+                    class="bg-[#f26c0d] hover:bg-[#d85e0c] transition-all duration-300 px-5 sm:px-7 md:px-9 py-2 sm:py-3 md:py-4 rounded-md text-sm sm:text-lg md:text-xl font-semibold shadow-lg inline-flex items-center gap-2"
+                  >
+                    <span x-text="slide.ctaText"></span>
+                    <i
+                      class="ri-arrow-right-line text-base sm:text-lg md:text-xl"
+                    ></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <button
+          @click="previous()"
+          class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full text-white bg-black/30 hover:bg-black/50 transition z-20"
+        >
+          <i class="ri-arrow-drop-left-line text-4xl sm:text-5xl"></i>
+        </button>
+
+        <button
+          @click="next()"
+          class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full text-white bg-black/30 hover:bg-black/50 transition z-20"
+        >
+          <i class="ri-arrow-drop-right-line text-4xl sm:text-5xl"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- In addition to products -->
+
+    <section class="w-full bg-[#fafafa] py-10 px-6 md:px-20 text-center">
+      <div
+        class="inline-flex items-center gap-2 bg-[#2b2b2b] text-white px-4 py-0.5 rounded-full text-sm font-semibold shadow-sm mb-6"
+      >
+        <span class="w-2 h-2 bg-[#f26c0d] rounded-full"></span>
+        <span class="text-xl">Além de produtos</span>
+      </div>
+
+      <h2
+        class="text-2xl md:text-2xl font-bold text-[#f26c0d] mb-3 max-w-full md:max-w-[25%] mx-auto leading-snug"
+      >
+        Soluções sob medida para as necessidades da sua empresa.
+      </h2>
+
+      <p
+        class="text-base md:text-md text-gray-600 max-w-[85%] md:max-w-[30%] mx-auto leading-relaxed"
+      >
+        Soluções completas para a sua empresa que vão além de aquisição de
+        produtos
+      </p>
+    </section>
+
+    <!-- Services Section -->
+
+    <section
+      class="w-full bg-[#fafafa] py-16 px-6 md:px-20"
+      x-data="{
+    active: 0,
+    services: [
+      {title: 'Licenciamento de software e contrato guarda-chuva', text: 'O contrato guarda-chuva simplifica a gestão de licenças, vencimentos, prazos, recolhimento de impostos, necessidade de expansão de licenças e muito mais, através de um documento contratual unificado, que estabelece condições pré-definidas de aquisição de licenças e expansões, dando mais previsibilidade de orçamento e centralização do controle geral.', img: './Images/services-images/Licenciamento-de-software.png', icon: './Images/services-svg/Fingerprint.svg'},
+      {title: 'Gestão de Projetos e ITSM', text: 'A terceirização de TI (Tecnologia da Informação) é uma prática de negócios em que uma companhia contrata uma empresa altamente especializada para executar funções, lidar com operações ou oferecer serviços ligados à Tecnologia da Informação.', img: './Images/services-images/Outsourcing-1-3.png', icon: './Images/services-svg/file-3-1-1.svg'},
+      {title: 'DevSecOps', text: 'A consultoria de DevOps é um serviço que visa auxiliar organizações na implementação das práticas e ferramentas do DevOps em sua esteira de desenvolvimento de software.', img: './Images/services-images/Devops-.png' , icon: './Images/services-svg/folder-programming-code.svg'},
+      {title: 'Análise de Dados', text: 'A consultoria em análise de dados é fundamental para empresas que desejam utilizar seus dados de maneira inteligente a fim de tomarem decisões assertivas e embasadas em evidências. Um bom serviço de consultoria oferece expertise, ferramentas avançadas e estratégias personalizadas.', img: './Images/services-images/Big-Data.png', icon: './Images/services-svg/monitor-server-databases-checkmark.svg'},
+      {title: 'Infraestrutura e Cibersegurança', text: 'A consultoria em cibersegurança proporciona um conjunto de conhecimentos especializados, estratégias e soluções que permitem às empresas mitigarem riscos cibernéticos, protegerem seus ativos digitais e manterem a integridade de suas operações, garantindo, assim, a continuidade dos negócios em um ambiente virtual cada vez mais desafiador e dinâmico.', img: './Images/services-images/SegurancaInfraestrutura.png', icon: './Images/services-svg/Fingerprint.svg'},
+      {title: 'Autoria e LMS', text: 'A consultoria em educação digital auxilia empresas e instituições de ensino na transição para uma abordagem educacional mais inovadora e interativa, usufruindo das novas tecnologias (como as ferramentas de autoria, inteligência artificial e os ambientes virtuais de aprendizagem) para modernização do ensino e alcance de melhores resultados.', img: './Images/services-images/Educacao-Digital.png', icon: './Images/services-svg/open-book-graduate-hat.svg'},
+      {title: 'Engenharia & GIS', text: 'Nossa consultoria em Engenharia e GIS apoia empresas que trabalham com projetos complexos nas áreas de engenharia, modelagem 3D, CAD e sistemas de informação geográfica. Oferecemos as melhores soluções em software para criação, visualização e análise técnica, ajudando equipes a desenvolverem projetos com precisão, eficiência e inteligência geoespacial.', img: './Images/services-images/Engenharia-e-GIS.png', icon: './Images/services-svg/engenharia-1.svg'},
+      {title: 'Colaboração & Design', text: 'Nossa consultoria em Colaboração e Design ajuda seu negócio a performar melhor e através das melhores soluções de colaboração, enquanto fornecemos também as melhores ferramentas para a produção de design gráfico. Conte com os mais modernos e completos softwares para produzir mais e melhor.', img: './Images/services-images/Colaboracao-e-Design.png', icon: './Images/services-svg/colaboracao-e-design-1.svg'},
+      {title: 'Desenvolvimento low code e integrações via APIs', text: 'Nossos serviços de desenvolvimento low code, soluções e integrações via APIs visam maximizar a eficiência das campanhas de tráfego pago via Google Ads, proporcionando uma gestão automatizada e inteligente do orçamento de marketing. Através da integração da console do Google Ads do cliente com seu sistema ERP, a API captura os dados relevantes, analisa desempenho e otimiza continuamente as campanhas.', img: './Images/services-images/Desenvolvimento-Low-Code-Solucoes-e-Integracoes-via-APIs.png', icon: './Images/services-svg/low-code-1.svg'}
+    ],
+    next() { this.active = (this.active + 1) % this.services.length },
+    prev() { this.active = (this.active - 1 + this.services.length) % this.services.length }
+  }"
+    >
+      <!-- 💻 Desktop -->
+      <div
+        class="hidden md:flex max-w-6xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12 flex-col md:flex-row gap-10"
+      >
+        <!-- يسار -->
+        <div class="w-full md:w-1/2 space-y-6">
+          <template x-for="(service, index) in services" :key="index">
+            <div
+              class="border-l-2 pl-6 transition-all duration-300"
+              :class="active === index ? 'border-[#f26c0d]' : 'border-transparent'"
+            >
+              <button
+                @click="active = index"
+                class="flex items-start w-full text-left transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <template x-if="service.icon">
+                    <img
+                      :src="service.icon"
+                      alt=""
+                      class="w-6 h-6 object-contain transition duration-300"
+                      :class="active === index 
+                    ? 'opacity-100 brightness-100' 
+                    : 'grayscale brightness-75 opacity-70 group-hover:opacity-100 group-hover:brightness-100'"
+                    />
+                  </template>
+                  <h3
+                    class="font-semibold text-lg transition-colors duration-300"
+                    :class="active === index 
+                  ? 'text-[#f26c0d]' 
+                  : 'text-gray-500 hover:text-[#f26c0d]'"
+                    x-text="service.title"
+                  ></h3>
+                </div>
+              </button>
+              <div
+                x-show="active === index"
+                x-collapse
+                class="mt-2 text-gray-600 text-sm leading-relaxed"
+              >
+                <p x-text="service.text"></p>
+                <a
+                  href="#"
+                  class="inline-flex items-center gap-1 mt-4 text-[#f26c0d] border border-[#f26c0d] rounded-md px-4 py-2 text-sm font-medium hover:bg-[#f26c0d] hover:text-white transition"
+                >
+                  Saber mais <i class="ri-arrow-right-up-line"></i>
+                </a>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <!-- يمين -->
+        <div
+          class="w-full md:w-1/2 flex items-center justify-center relative overflow-hidden"
+        >
+          <template x-for="(service, index) in services" :key="'img-' + index">
+            <div
+              x-show="active === index"
+              x-transition:enter="transition ease-out duration-700"
+              x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+              x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-500"
+              x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+              x-transition:leave-end="opacity-0 scale-95 translate-y-4"
+              class="absolute inset-0 flex justify-center items-center"
+            >
+              <img
+                :src="service.img"
+                class="w-3/4 max-w-md h-auto rounded-xl object-contain shadow-md"
+                alt=""
+              />
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- 📱 Mobile Slider -->
+      <div
+        class="md:hidden relative max-w-md mx-auto bg-white rounded-2xl shadow-sm overflow-hidden p-6"
+      >
+        <template x-for="(service, index) in services" :key="index">
+          <div x-show="active === index" x-transition class="text-center">
+            <img
+              :src="service.img"
+              class="w-3/4 mx-auto rounded-xl mb-4 object-contain"
+            />
+            <img :src="service.icon" class="w-8 h-8 mx-auto mb-2" />
+            <h3
+              class="font-semibold text-[#f26c0d] mb-2"
+              x-text="service.title"
+            ></h3>
+            <p class="text-gray-600 text-sm mb-4" x-text="service.text"></p>
+            <a
+              href="#"
+              class="text-[#f26c0d] border border-[#f26c0d] rounded-md px-4 py-2 text-sm font-medium hover:bg-[#f26c0d] hover:text-white transition"
+            >
+              Saber mais
+            </a>
+          </div>
+        </template>
+
+        <!-- أزرار السلايدر -->
+        <button
+          @click="prev"
+          class="absolute top-1/2 left-2 -translate-y-1/2 bg-[#f26c0d] text-white rounded-full w-8 h-8 flex items-center justify-center shadow-md active:scale-90 transition"
+        >
+          <i class="ri-arrow-left-s-line text-lg"></i>
+        </button>
+        <button
+          @click="next"
+          class="absolute top-1/2 right-2 -translate-y-1/2 bg-[#f26c0d] text-white rounded-full w-8 h-8 flex items-center justify-center shadow-md active:scale-90 transition"
+        >
+          <i class="ri-arrow-right-s-line text-lg"></i>
+        </button>
+
+        <!-- النقاط -->
+        <div class="flex justify-center mt-4 space-x-2">
+          <template x-for="(service, index) in services" :key="'dot-' + index">
+            <button
+              @click="active = index"
+              :class="active === index ? 'bg-[#f26c0d]' : 'bg-gray-300'"
+              class="w-3 h-3 rounded-full transition-all duration-300"
+            ></button>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real cases -->
+    <section class="w-full bg-[#fafafa] py-10 px-6 md:px-20 text-center">
+      <div
+        class="inline-flex items-center gap-2 bg-[#2b2b2b] text-white px-6 py-0.5 rounded-full text-sm font-semibold shadow-sm mb-6"
+      >
+        <span class="w-2 h-2 bg-[#f26c0d] rounded-full"></span>
+        <span class="text=3xl">Cases reais</span>
+      </div>
+
+      <h2
+        class="text-2xl md:text-2xl font-semibold text-[#f26c0d] mb-3 max-w-[90%] md:max-w-[45%] mx-auto leading-snug"
+      >
+        Histórias reais de sucesso impulsionadas por nós
+      </h2>
+
+      <p
+        class="text-base md:text-lg text-gray-600 max-w-[95%] md:max-w-[50%] mx-auto leading-relaxed"
+      >
+        Descubra como ajudamos empresas a superar desafios, otimizar <br />
+        processos e alcançar resultados excepcionais.
+      </p>
+    </section>
+
+    <!-- Testimonials + Client Logos Section -->
+
+    <!--  Testimonials Section -->
+    <section class="w-full py-16 px-4 sm:px-6 md:px-10 lg:px-20">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="swiper testimonialSwiper">
+          <div class="swiper-wrapper">
+            <!--  Slide 1 -->
+            <div class="swiper-slide px-1">
+              <div class="testimonial-card">
+                <p>
+                  Encontrei a Software.com.br por um acaso, em uma busca pela
+                  Internet. Efetuei a primeira compra e recebi minhas licenças
+                  no prazo combinado. Aprovado!
+                </p>
+                <div>
+                  <h3>Daniel Moraes</h3>
+                  <span>Gerente de Parcerias, P2T Consultoria</span>
+                </div>
+              </div>
+            </div>
+
+            <!--  Slide 2 -->
+            <div class="swiper-slide px-1">
+              <div class="testimonial-card">
+                <p>
+                  Quero ressaltar o trabalho da equipe da Software.com.br. Os
+                  profissionais são muito bons, com respostas precisas e
+                  rápidas. O atendimento é excelente.
+                </p>
+                <div>
+                  <h3>Daniel Krueger</h3>
+                  <span
+                    >Programador da Divisão de Geoprocessamento, Secretaria
+                    Municipal de Planejamento e Gestão de Santa Cruz do
+                    Sul</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!--  Slide 3 -->
+            <div class="swiper-slide px-1">
+              <div class="testimonial-card">
+                <p>
+                  O Prezi oferece opções que facilitam o processo de criar
+                  apresentações para palestras e reuniões de trabalho, com belo
+                  visual e boa dinâmica. Quando expliquei à Software.com.br o
+                  que precisava, eles me recomendaram esta solução que me atende
+                  perfeitamente.
+                </p>
+                <div>
+                  <h3>Murilo Farias Santos</h3>
+                  <span>CEO, Emit Hyundai</span>
+                </div>
+              </div>
+            </div>
+
+            <!--  Slide 4 -->
+            <div class="swiper-slide px-1">
+              <div class="testimonial-card">
+                <p>
+                  Excelente o atendimento da Software.com.br, desde o primeiro
+                  contato até a efetivação da minha compra. Com certeza será
+                  minha referência para futuras cotações/aquisições de software.
+                </p>
+                <div>
+                  <h3>Alexandre Canevazzi</h3>
+                  <span>Diretor, Alex Shoes</span>
+                </div>
+              </div>
+            </div>
+
+            <!--  Slide 5 -->
+            <div class="swiper-slide px-1">
+              <div class="testimonial-card">
+                <p>
+                  Indico fortemente a Software.com.br! Sempre que precisei, fui
+                  bem atendido. E parabéns pelo novo site — muito mais dinâmico
+                  e fácil de navegar!
+                </p>
+                <div>
+                  <h3>Juliano Simões</h3>
+                  <span>Gerente de Compras, Spazio Escritórios</span>
+                </div>
+              </div>
+            </div>
+
+            <!--  Slide 6 -->
+            <div class="swiper-slide px-1">
+              <div class="testimonial-card">
+                <p>
+                  O Pitstop foi uma aquisição importantíssima para a gráfica. O
+                  processo de compra com a Software.com.br foi muito rápido!
+                  Produto imprescindível para garantir a qualidade dos nossos
+                  serviços!
+                </p>
+                <div>
+                  <h3>Wilson Moreira Jr</h3>
+                  <span>VP de Marketing, Gráfica Águia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--  Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!--  LOGOS SECTION -->
+
+    <section class="w-full bg-[#fafafa] py-16 px-4 md:px-10 text-center">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-[#503522] font-semibold text-lg mb-10">
+          Simplificando processos para mais de 5.000 empresas
+        </h2>
+        <!--  Swiper Wrapper -->
+        <div class="swiper logoSwiper w-full overflow-hidden">
+          <div class="swiper-wrapper flex items-center">
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/bradesco-logo.png"
+                alt="Bradesco"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/uninove-logo.png"
+                alt="Uninove"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/usp-logo.png"
+                alt="USP"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/unicamp-logo.png"
+                alt="Unicamp"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/basf-logo.png"
+                alt="BASF"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/cemig-logo.png"
+                alt="Cemig"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/petrobras-logo.png"
+                alt="Petrobras"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+            <div class="swiper-slide flex justify-center">
+              <img
+                src="./Images/Client-Logos/vale-logo.png"
+                alt="Vale"
+                class="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-all"
+              />
+            </div>
+          </div>
+
+          <!--  Pagination -->
+          <div
+            class="swiper-pagination mt-8 !relative flex justify-center"
+          ></div>
+        </div>
+      </div>
+    </section>
+<!-- events -->
+    <section class="w-full bg-[#fafafa] py-16 px-6 md:px-20 text-center">
+      <div
+        class="inline-flex items-center gap-2 bg-[#2b2b2b] text-white px-4 py-1 rounded-full text-sm font-semibold shadow-sm mb-6"
+      >
+        <span class="w-2 h-2 bg-[#f26c0d] rounded-full"></span>
+        <span>Acompanhe nossas atividades</span>
+      </div>
+      <h2
+        class="text-2xl md:text-2xl font-bold text-[#f26c0d] mb-3 max-w-[80%] md:max-w-[25%] mx-auto leading-snug"
+      >
+        Eventos
+      </h2>
+      <p
+        class="text-xl font-semibold text-grey-200"
+        class="text-base md:text-md text-gray-600 max-w-[85%] md:max-w-[30%] mx-auto leading-relaxed"
+      >
+        Acompanhe nossas palestras, workshops e feiras, e descubra como estamos
+        contribuindo para o setor e se conectando com nossos clientes e
+        parceiros.
+      </p>
+    </section>
+
+    <!-- blog cards -->
+    <section class="w-full bg-[#fafafa] py-16 px-6 md:px-20">
+      <div class="max-w-6xl mx-auto">
+        <!-- Cards Grid -->
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card 1 -->
+          <div
+            class="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-500"
+          >
+            <img
+              src="./Images/Eventos-Blog-images/1ebfa7da-1bb5-404a-9ceb-cff019c128e3.jpeg"
+              alt="Evento"
+              class="w-full h-100 object-cover"
+            />
+            <div class="p-6 text-left">
+              <p
+                class="text-sm text-orange-500 font-light mb-2 flex items-center gap-1"
+              >
+                <i class="ri-calendar-line text-[#F26C0D] text-lg"></i>
+
+                8 de maio, 2025
+              </p>
+              <h3 class="text-gray-800 font-medium text-lg mb-3">
+                Evento | Minitab Exchange Brasil 2025
+              </h3>
+              <p class="text-gray-600 text-sm mb-5">
+                Participe do Minitab Exchange Brasil 2025, um evento exclusivo
+                para profissionais e entusiastas da análise estatística! Conheça
+                tendências, casos reais e as novidades do Minitab em um dia
+                repleto de conteúdo e networking.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center mt-4 gap-1 text-orange-500 font-medium border border-orange-200 rounded-md px-3 py-1 text-sm hover:bg-orange-500 hover:text-white transition-all"
+              >
+                Saber mais
+                <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-500"
+          >
+            <img
+              src="./Images/Eventos-Blog-images/Convite-oficial.png"
+              alt="Evento"
+              class="w-full h-100 object-cover"
+            />
+            <div class="p-6 text-left">
+              <p
+                class="text-sm text-orange-500 font-light mb-2 flex items-center gap-1"
+              >
+                <i class="ri-calendar-line text-[#F26C0D] text-lg"></i>
+
+                24 de setembro, 2025
+              </p>
+              <h3 class="text-gray-800 font-medium text-lg mb-3">
+                Articulate 360 Brasil 2025
+              </h3>
+              <p class="text-gray-600 text-sm mb-5">
+                Vem aí a segunda edição do maior encontro presencial de design
+                instrucional do Brasil: o Articulate 360 Brasil 2025! Endereço:
+                Avenida Paulista, 2064 – Mezanino (Auditório Edifício Paulista)
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center mt-4 gap-1 text-orange-500 font-medium border border-orange-200 rounded-md px-3 py-1 text-sm hover:bg-orange-500 hover:text-white transition-all"
+              >
+                Saber mais
+                <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-500"
+          >
+            <img
+              src="./Images/Eventos-Blog-images/webinar-canva-Visual-Suite-2.0-email-1.jpg"
+              alt="Evento"
+              class="w-full h-100 object-cover"
+            />
+            <div class="p-6 text-left">
+              <p
+                class="text-sm text-orange-500 font-light mb-2 flex items-center gap-1"
+              >
+                <i class="ri-calendar-line text-[#F26C0D] text-md"></i>
+
+                30 de setembro, 2025
+              </p>
+              <h3 class="text-gray-600 font-semibold text-lg mb-3">
+                Visual Suite 2.0 e todas as suas soluções
+              </h3>
+              <p class="text-gray-400 text-sm mb-5">
+                Em nosso próximo webinar, vamos apresentar o Visual Suite 2.0 e
+                todas as suas funcionalidades. Descubra como explorar todo o
+                potencial da plataforma, otimizar sua produção com o Canva e
+                ainda garantir seu certificado de participação.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center mt-12 gap-1 text-orange-500 font-medium border border-orange-200 rounded-md px-3 py-1 text-sm hover:bg-orange-500 hover:text-white transition-all"
+              >
+                Saber mais
+                <i class="ri-arrow-right-up-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ebook section -->
+    <section class="w-full bg-[#fafafa] py-16 px-6 md:px-20">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-sm overflow-hidden"
+      >
+        <!-- text -->
+        <div class="flex-1 p-8 md:p-12 text-left">
+          <!-- badge-->
+          <div
+            class="inline-flex items-center gap-2 p-4 bg-[#2b2b2b] text-white px-3 py-0.5 rounded-full text-sm font-semibold mb-6 shadow-sm"
+          >
+            <span class="w-2 h-2 bg-[#f26c0d] rounded-full"></span>
+            Nosso guia
+          </div>
+
+          <!-- title -->
+          <h2 class="text-3xl font-semibold text-gray-700 mb-3">
+            Conheça o guia
+            <span class="text-[#f26c0d]">Software.com.br</span> 2025
+          </h2>
+
+          <p class="text-gray-500 text-lg font-semibold mb-2">
+            Os melhores softwares para todos os segmentos do mercado
+          </p>
+          <p class="text-gray-500 font-medium mb-6">
+            Mais de 10.000 Fabricantes
+          </p>
+
+          <hr class="border-t border-orange-100 mb-6" />
+
+          <p class="text-gray-700 font-medium text-lg mb-3">
+            Como a inteligência artificial tem feito parte das mais <br />
+            bbdiversas soluções em nosso dia a dia.
+          </p>
+          <p class="text-gray-400 text-base mb-8">
+            Saiba como as soluções tecnológicas mais recentes promovem a
+            inovação e modernizam o ambiente de trabalho.
+          </p>
+
+          <!-- button-->
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 text-[#f26c0d] font-medium border border-orange-200 rounded-md px-4 py-2 text-sm hover:bg-[#f26c0d] hover:text-white transition-all duration-300 mb-6"
+          >
+            Abrir e-book
+            <i class="ri-arrow-right-up-line text-[16px]"></i>
+          </a>
+
+          <!-- social icons -->
+          <div class="flex items-center gap-3 text-xl">
+            <a
+              href="#"
+              class="p-2.5 rounded-full bg-white shadow-md text-[#f26c0d] transition-all duration-300 hover:bg-[#f26c0d] hover:text-white hover:shadow-lg hover:-translate-y-1"
+            >
+              <i class="ri-facebook-circle-fill"></i>
+            </a>
+
+            <a
+              href="#"
+              class="p-2.5 rounded-full bg-white shadow-md text-[#f26c0d] transition-all duration-300 hover:bg-[#f26c0d] hover:text-white hover:shadow-lg hover:-translate-y-1"
+            >
+              <i class="ri-instagram-line"></i>
+            </a>
+
+            <a
+              href="#"
+              class="p-2.5 rounded-full bg-white shadow-md text-[#f26c0d] transition-all duration-300 hover:bg-[#f26c0d] hover:text-white hover:shadow-lg hover:-translate-y-1"
+            >
+              <i class="ri-linkedin-box-fill"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- image-->
+        <div
+          class="flex-1 bg-[#fffaf5] flex justify-center items-center p-8 md:p-10"
+        >
+          <img
+            src="./Images/capa.jpg"
+            alt="Guia Software 2025"
+            class="w-full max-w-sm rounded-lg shadow-sm"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- form section -->
+    <section class="relative w-full flex justify-center py-20 bg-[#ffffff]">
+      <div
+        class="relative w-full max-w-6xl bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden text-white"
+        style="
+          background-image: url('./Images/Newsletter form subscribtion.png');
+        "
+      >
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- المحتوى الموحد -->
+        <div class="relative z-10 text-left px-16 py-16">
+          <!-- Badge -->
+          <div
+            class="inline-flex items-center gap-2 bg-white text-[#f26c0d] text-sm font-semibold px-6 rounded-full mb-4"
+          >
+            <span class="w-2 h-2 bg-[#f26c0d] rounded-full"></span>
+            Software.com.br
+          </div>
+
+          <!-- Heading -->
+          <h2 class="text-3xl md:text-2xl font-bold leading-snug mb-3">
+            Fique Atualizado com a
+            <span class="text-[#f26c0d]">Software.com.br</span>
+          </h2>
+
+          <!-- Description -->
+          <p class="text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+            Inscreva-se na nossa newsletter e seja o primeiro a aproveitar tudo
+            o que temos a oferecer!
+          </p>
+
+          <p class="text-sm mb-2">Seu melhor e-mail</p>
+
+          <!-- Form -->
+          <form class="flex flex-row gap-3 max-w-xl">
+            <input
+              type="email"
+              placeholder="Exemplo@email.com"
+              class="w-[80%] px-5 py-3 rounded-md bg-white font-semibold text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#f26c0d]"
+            />
+            <button
+              type="submit"
+              class="bg-[#f26c0d] text-white font-semibold px-8 py-3 rounded-md hover:bg-orange-500 transition-all flex items-center justify-center gap-2"
+            >
+              Enviar
+              <i class="ri-arrow-right-line text-sm"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mega footer -->
+    <footer
+      class="bg-[#1a1a1a] text-gray-300 text-sm w-full px-6 md:px-20 py-16"
+    >
+      <div class="container mx-auto max-w-7xl">
+        <!-- Top main grid -->
+        <div
+          class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16 text-[#c0c0c0]"
+        >
+          <!-- Produtos -->
+          <div
+            x-data="{ open: false }"
+            class="min-w-[200px] md:border-none pb-4 md:pb-0"
+          >
+            <button
+              @click="open = !open"
+              class="flex justify-between items-center w-full md:cursor-default"
+            >
+              <h3 class="text-[#f26c0d] text-lg font-semibold">Produtos</h3>
+              <svg
+                x-show="!open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </button>
+            <div
+              x-show="open || window.innerWidth >= 768"
+              x-transition
+              class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8"
+            >
+              <ul class="space-y-2">
+                <li>Análise de Dados</li>
+                <li>Backup e Recovery</li>
+                <li>Cibersegurança</li>
+                <li>DevOps</li>
+                <li>Gestão de Documentos</li>
+                <li>Mac</li>
+                <li>Planejamento</li>
+                <li>Rede e Monitoramento</li>
+                <li>UX</li>
+              </ul>
+              <ul class="space-y-2">
+                <li>Arquitetura e Engenharia</li>
+                <li>Banco de Dados e Virtualização</li>
+                <li>Componentes de Programação</li>
+                <li>Gerenciamento de Projetos e Colaboração</li>
+                <li>Inteligência Artificial</li>
+                <li>Multimídia</li>
+                <li>Produtividade</li>
+                <li>Utilitários</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Serviços -->
+          <div
+            x-data="{ open: false }"
+            class="min-w-[200px] md:border-none pb-4 md:pb-0"
+          >
+            <button
+              @click="open = !open"
+              class="flex justify-between items-center w-full md:cursor-default"
+            >
+              <h3 class="text-[#f26c0d] text-lg font-semibold">Serviços</h3>
+              <svg
+                x-show="!open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </button>
+            <ul
+              x-show="open || window.innerWidth >= 768"
+              x-transition
+              class="mt-4 space-y-2"
+            >
+              <li>Licenciamento de software e contrato guarda-chuva</li>
+              <li>Gestão de Projetos e ITSM</li>
+              <li>DevSecOps</li>
+              <li>Análise de Dados</li>
+              <li>Infraestrutura e Cybersegurança</li>
+              <li>Autoria e LMS</li>
+              <li>Desenvolvimento low code, soluções e integrações via APIs</li>
+              <li>Colaboração & Design</li>
+              <li>Engenharia & GIS</li>
+            </ul>
+          </div>
+
+          <!-- Navegação -->
+          <div
+            x-data="{ open: false }"
+            class="min-w-[200px] md:border-none pb-4 md:pb-0"
+          >
+            <button
+              @click="open = !open"
+              class="flex justify-between items-center w-full md:cursor-default"
+            >
+              <h3 class="text-[#f26c0d] text-lg font-semibold">Navegação</h3>
+              <svg
+                x-show="!open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </button>
+            <ul
+              x-show="open || window.innerWidth >= 768"
+              x-transition
+              class="mt-4 space-y-2"
+            >
+              <li>Home</li>
+              <li>Quem somos</li>
+              <li>Blog</li>
+              <li>Seja um parceiro</li>
+              <li>Seja uma revenda</li>
+              <li>Faça um orçamento</li>
+              <li>Fale conosco</li>
+              <li>Eventos</li>
+              <li>Fabricantes</li>
+              <li>Cases de sucesso</li>
+              <li>Imprensa</li>
+              <li>Ética e Compliance</li>
+            </ul>
+          </div>
+
+          <!-- Termos e políticas -->
+          <div
+            x-data="{ open: false }"
+            class="min-w-[200px] md:border-none pb-4 md:pb-0"
+          >
+            <button
+              @click="open = !open"
+              class="flex justify-between items-center w-full md:cursor-default"
+            >
+              <h3 class="text-[#f26c0d] text-lg font-semibold">
+                Termos e políticas
+              </h3>
+              <svg
+                x-show="!open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 md:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </button>
+            <ul
+              x-show="open || window.innerWidth >= 768"
+              x-transition
+              class="mt-4 space-y-2"
+            >
+              <li>Termos de uso</li>
+              <li>Política de privacidade</li>
+              <li>Trocas e devoluções</li>
+              <li>Corporativo</li>
+              <li>Órgãos públicos</li>
+              <li>Instituições de ensino</li>
+              <li>Revendas</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact, Time, Address & Certification grid -->
+        <div
+          class="flex flex-col md:flex-row w-full justify-center md:justify-evenly gap-8 md:gap-12 py-10 text-gray-400 text-sm"
+        >
+          <!-- Contato -->
+          <div class="shrink-0 max-w-xs space-y-4">
+            <h4 class="text-[#f26c0d] font-semibold text-lg mb-3">Contato</h4>
+            <div class="flex items-center gap-3 text-[#c0c0c0]">
+              <i class="ri-phone-line text-gray-500 text-lg"></i>
+              <span>+55 (11) 3665-8550</span>
+            </div>
+            <div class="flex items-center gap-3 text-[#c0c0c0]">
+              <i class="ri-mail-line text-gray-500 text-lg"></i>
+              <span>contato@software.com.br</span>
+            </div>
+          </div>
+
+          <!-- Horário de atendimento -->
+          <div class="shrink-0 max-w-xs space-y-4">
+            <h4 class="text-[#f26c0d] text-lg font-semibold mb-3">
+              Horário de atendimento
+            </h4>
+            <div class="flex items-center gap-3 text-[#c0c0c0]">
+              <i class="ri-time-line text-[#c0c0c0] text-lg"></i>
+              <span>Segunda à Sexta-feira das 08:00 às 19:00</span>
+            </div>
+          </div>
+
+          <!-- Endereço -->
+          <div class="shrink-0 max-w-xs space-y-4">
+            <h4 class="text-[#f26c0d] font-semibold mb-3">Endereço</h4>
+            <div class="flex items-center gap-3 text-[#c0c0c0]">
+              <i class="ri-map-pin-line text-[#c0c0c0] text-lg"></i>
+              <span
+                >Avenida Paulista, 2064 - 7º Andar - Bloco
+                <br class="hidden sm:block" />
+                B - Bela Vista - São Paulo/SP - 01310-928</span
+              >
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="shrink-0 flex items-center gap-6 justify-center max-w-xs">
+            <img
+              src="./Images/Frame-1074.png"
+              alt="Certificado Ética"
+              class="h-12 md:h-14"
+            />
+            <div class="flex flex-col items-center">
+              <img
+                src="./Images/Frame-1071.png"
+                alt="Certificado DUNS"
+                class="h-12 md:h-14"
+              />
+              <span class="text-xs text-[#c0c0c0] mt-1">914631353</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-gray-700 pt-4 flex flex-col gap-4">
+          <!-- Logo -->
+          <div class="flex justify-start">
+            <img
+              src="./Images/Logo-fundo-escuro.png"
+              alt="software.com.br logo"
+              class="h-12 md:h-14 w-auto"
+            />
+          </div>
+
+          <!-- Copyright -->
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-2 md:gap-0"
+          >
+            <p class="text-xs text-[#c0c0c0] text-left md:w-3/4">
+              Copyright © Software.com.br Tecnologia e Consultoria Ltda
+              2007–2025 – Todos os direitos reservados. CNPJ: 09.240.519/0001-11
+            </p>
+            <p class="text-xs text-[#c0c0c0] text-left md:text-right">
+              Dev By Zafarie
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      //  Testimonials Swiper
+      new Swiper(".testimonialSwiper", {
+        slidesPerView: 3.7,
+        spaceBetween: 24,
+        pagination: {
+          el: ".testimonialSwiper .swiper-pagination",
+          clickable: true,
+        },
+        autoplay: { delay: 1000, disableOnInteraction: false },
+        loop: true,
+        speed: 1200,
+        breakpoints: {
+          1024: { slidesPerView: 3.7 },
+          768: { slidesPerView: 2 },
+          0: { slidesPerView: 1 },
+        },
+      });
+
+      //  Logos Swiper
+      const logoSwiper = new Swiper(".logoSwiper", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        pagination: {
+          el: ".logoSwiper .swiper-pagination",
+          clickable: true,
+        },
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          reverseDirection: false,
+        },
+        speed: 5000,
+        loop: true,
+        freeMode: true,
+        freeModeMomentum: false,
+        breakpoints: {
+          1024: { slidesPerView: 5 },
+          768: { slidesPerView: 3 },
+          0: { slidesPerView: 2 },
+        },
+      });
+
+      //  Auto Reverse Animation
+      let reverse = false;
+      setInterval(() => {
+        reverse = !reverse;
+        logoSwiper.params.autoplay.reverseDirection = reverse;
+      }, 8000);
+    </script>
+  </body>
+</html>

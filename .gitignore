@@ -1,0 +1,13 @@
+# Ignore node modules
+
+node_modules/
+
+# Ignore build inputs
+
+styles/input.css
+tailwind.config.js
+postcss.config.js
+
+# Ignore other dev files
+
+package-lock.json
